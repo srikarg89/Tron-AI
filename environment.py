@@ -5,8 +5,9 @@ from collections import deque
 
 class Environment():
     
-    def __init__(self, board, visual):
+    def __init__(self, board, speed, visual):
         (self.board_width, self.board_height) = board
+        self.speed = speed
         self.wall = [(0,i) for i in range(self.board_width)] + [(i,0) for i in range(self.board_height)] + [(self.board_height-1,i) for i in range(self.board_width)] + [(i,self.board_width-1) for i in range(self.board_height)]
         self.score_reward_multiple = 0.01
         self.num_last_frames = 2
@@ -44,6 +45,7 @@ class Environment():
             tile_height = self.tile_height
             for x,y in self.wall:
                 pygame.draw.rect(self.game_display, black, Rect(x*tile_width, y*tile_width, tile_width, tile_height))
+            self.render(p1, p2)
 
     def render(self, p1, p2):
         if self.visual:
@@ -56,7 +58,7 @@ class Environment():
             x,y = p2.head
             pygame.draw.rect(self.game_display, blue, Rect(x*tile_width, y*tile_width, tile_width, tile_height))
             pygame.display.update()
-            self.clock.tick(20)
+            self.clock.tick(self.speed)
     
     def act(self, player, action):
         player.direction = player.interpret(action)
