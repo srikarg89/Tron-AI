@@ -9,7 +9,7 @@ An AI bot to play Tron against
 ## Code Structure
 *environment.py* contains the code for displaying the game state and performing actions
 
-*human.py* and *perfect.py* are, respectively, the human game agent and the AI game agent
+*human.py* and *control.py* are, respectively, the human game agent and the AI game agent
 
 *play.py* contains the code for initalizing the agents and the environment and running the game
 

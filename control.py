@@ -5,7 +5,7 @@ import math
 import time
 from utils import turn_left, turn_right
 
-class PerfectAI:
+class ControlAI:
 
     def __init__(self, num_actions, board):
         (board_width, board_height) = board

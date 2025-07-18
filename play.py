@@ -1,6 +1,6 @@
 from human import Human
 from environment import Environment
-from perfect import PerfectAI
+from control import ControlAI
 
 def game(player1, player2):
     env = Environment((board_width, board_height), speed, True)
@@ -39,9 +39,8 @@ if  __name__ == '__main__':
     
     speed = 10 # Decrease this value to make the game slower, increase it to make the game faster
 
-#    player1 = PerfectAI(action_size, (board_width, board_height))
     player1 = Human()
-    player2 = PerfectAI(action_size, (board_width, board_height))
+    player2 = ControlAI(action_size, (board_width, board_height))
 
     for i in range(5): # Change this number to change the number of rounds you play
         print(game(player1, player2))
